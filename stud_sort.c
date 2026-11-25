@@ -1,19 +1,19 @@
-#include"student.h"
+#include "student.h"
 
-int count_nodes(SLL *head)
+int count_nodes(SLL *ptr)
 {
     int count = 0;
-    while (head)
+    while (ptr)
     {
         count++;
-        head = head->next;
+        ptr = ptr->next;
     }
     return count;
 }
 
-void stud_sort(SLL **head)
+void stud_sort(SLL *ptr)
 {
-    if (*head == NULL)
+    if (ptr == NULL)
     {
         printf("No records found\n");
         return;
@@ -31,45 +31,39 @@ void stud_sort(SLL **head)
         return;
     }
 
-    int count = count_nodes(*head);
-    int i, j, swap;
-    SLL *prev, *curr, *next;
+    int i, j, c = count_nodes(ptr), swap;
+    SLL *p1 = ptr, *p2, t;
 
-    for (i = 0; i < count - 1; i++)
+    for (i = 0; i < c - 1; i++)
     {
-        prev = NULL;
-        curr = *head;
-
-        for (j = 0; j < count - 1 - i; j++)
+        p2 = p1->next;
+        for (j = 0; j < c - 1 - i; j++)
         {
-            next = curr->next;
-            if ((op == 'N' || op == 'n') && strcmp(curr->name, next->name) > 0)
+            if ((op == 'N' || op == 'n') && strcmp(p1->name, p2->name) > 0)
                 swap = 1;
-            else if ((op == 'P' || op == 'p') && curr->percentage < next->percentage)
+            else if ((op == 'P' || op == 'p') && p1->percentage < p2->percentage)
                 swap = 1;
             else
                 swap = 0;
 
             if (swap)
             {
-                if (prev == NULL)
-                {
-                    *head = next;
-                }
-                else
-                {
-                    prev->next = next;
-                }
-                curr->next = next->next;
-                next->next = curr;
+                t.rollno = p1->rollno;
+                strcpy(t.name, p1->name);
+                t.percentage = p1->percentage;
 
-                prev = next; // Update prev to the new node after swapping
+                p1->rollno = p2->rollno;
+                strcpy(p1->name, p2->name);
+                p1->percentage = p2->percentage;
+
+                p2->rollno = t.rollno;
+                strcpy(p2->name, t.name);
+                p2->percentage = t.percentage;
             }
-            else
-            {
-                prev = curr;
-                curr = curr->next;
-            }
+            p2 = p2->next;
         }
+        p1 = p1->next;
     }
+
+    printf("Records sorted successfully.\n");
 }

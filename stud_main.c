@@ -18,9 +18,9 @@ int main()
             case 'S':
             case 's':
                     stud_show(head);break;
-        //   case 'M':
-        //    case 'm':
-        //            stud_mod(head);break;
+            case 'M':
+            case 'm':
+                    stud_mod(head);break;
             case 'V':
             case 'v':
                     stud_save(head);break;

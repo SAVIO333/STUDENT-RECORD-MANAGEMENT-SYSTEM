@@ -1,4 +1,3 @@
-
 #include"student.h"
 
 void stud_add(SLL **head)
@@ -15,7 +14,7 @@ void stud_add(SLL **head)
             temp=*head;
         }
         else
-            temp=temp->next;
+            temp=temp->next;  
     }
     new->rollno=r;
     printf("Enter the name and marks of the student:\n");

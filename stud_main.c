@@ -51,9 +51,9 @@ int main()
                 break;
             }
 
-     //       case 'T':
-       //     case 't':
-       //             stud_sort(head);break;
+              case 'T':
+              case 't':
+                      stud_sort(head);break;
             case 'L':
             case 'l':
                     stud_delall(&head);break;

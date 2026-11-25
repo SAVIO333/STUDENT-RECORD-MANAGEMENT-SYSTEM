@@ -18,7 +18,7 @@ void stud_del(SLL **);
 void stud_show(SLL *);
 //void stud_mod(SLL *);
 void stud_save(SLL *);
-//*void stud_sort(SLL *);
+void stud_sort(SLL *);
 void stud_delall(SLL **);
 //void stud_revlink(SLL **);
 

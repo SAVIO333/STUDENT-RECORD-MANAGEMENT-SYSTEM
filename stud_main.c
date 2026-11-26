@@ -36,7 +36,6 @@ int main()
                 if (exit_op == 'S' || exit_op == 's')
                 {
                     stud_save(head);
-                    stud_delall(&head);
                     return 0;
                 }
                 else if (exit_op == 'E' || exit_op == 'e')
@@ -57,9 +56,9 @@ int main()
             case 'L':
             case 'l':
                     stud_delall(&head);break;
-    //        case 'R':
-    //        case 'r':
-    //                stud_revlink(&head);break; */
+            case 'R':
+            case 'r':
+                    stud_revlink(&head);break; 
             default:printf("Invalid option\n");
         }
     }
